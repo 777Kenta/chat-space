@@ -27,22 +27,20 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, default: ""|
-|email|string|null: false, default: ""|
-|encrypted_password|string|null: false, default: ""|
-
+|name|string|null: false, index: true, unique: true|
+|mail|string|null: false|
 ### Association
-- has_many :groups
+- has_many :groups, through: :members
 - has_many :members
 -----------------------------------------------------
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, default: ""|
+|name|string|null: false|
 
 ### Association
-- has_many :users
+- has_many :users, through: :members
 - has_many :members
 -----------------------------------------------------
 ## membersテーブル
@@ -60,8 +58,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false, default: ""|
-|image|string|null: false, default: ""|
+|body|text||
+|image|string||
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
