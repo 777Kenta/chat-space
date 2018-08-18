@@ -1,0 +1,5 @@
+= link_to group_messages_path(group) do
+%div.group__name
+  = group.name
+%div.group__message
+  = group.message_display if group.messages.present?

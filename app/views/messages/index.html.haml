@@ -2,28 +2,17 @@
   %div.side-bar
     %div.header
       %h3.header__name
-        K
+        = current_user.name
       %ul.header__lists
         %li.list
-          %a(href="")
+          = link_to edit_user_registration_path do
             %i.fa.fa-pencil-square-o.white
         %li.list
-          %a(href="")
+          = link_to new_group_path do
             %i.fa.fa-cog.white
     %div.groups
       %div.group
-        %a(href="")
-          %div.group__name
-            aaaaaaaaa
-          %div.group__message
-            まだメッセージはありません。
-      %div.group
-        %a(href="")
-          %div.group__name
-            sampleグループ
-          %div.group__message
-            まだメッセージはありません。
-
+        = render partial: "sidebar_groups", collection: @groups, as: "group"
   %div.chat
     %div.header
       %div.left-header
