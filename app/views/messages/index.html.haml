@@ -36,7 +36,7 @@
           %div.lower-message__content
             あああああ
     %div.form
-      %form{:action => "/", method: :post}
+      = form_for [@group, @message] do |f|
         %input{:name => "message", :class => "form__message",:placeholder=> "type a message"}
       %div.form__mask
         %label{:class => "form__mask__image",:for => "message_image"}
