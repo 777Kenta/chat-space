@@ -26,20 +26,12 @@
         %a.right-header__button
           = link_to "Edit" , ""
     %div.messages
-      %div.message
-        %div.upper-message
-          %div.upper-message__user-name
-            K
-          %div.upper-message__date
-            2018/08/09 03:47
-        %div.lower-message
-          %div.lower-message__content
-            あああああ
+      = render @messages
     %div.form
       = form_for [@group, @message] do |f|
-        %input{:name => "message", :class => "form__message",:placeholder=> "type a message"}
-      %div.form__mask
-        %label{:class => "form__mask__image",:for => "message_image"}
-          %i.fa.fa-picture-o
-            %input{:class => "hidden", :id => "message_image", :type => "file", :name => "message[image]"}
-      %input{:name => "commit",:type => "submit",:value => "Send",:class => "form__submit"}
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        %div.form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
