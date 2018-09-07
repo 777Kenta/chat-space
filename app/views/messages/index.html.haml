@@ -10,7 +10,8 @@
         %li.list
           = link_to new_group_path do
             %i.fa.fa-cog.white
-    = render partial: "sidebar_groups", collection: @groups, as: "group"
+    .groups
+      = render partial: "sidebar_groups", collection: @groups, as: "group"
   %div.chat
     %div.header
       %div.left-header
