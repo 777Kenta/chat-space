@@ -10,21 +10,21 @@
         %li.list
           = link_to new_group_path do
             %i.fa.fa-cog.white
-    %div.groups
-      %div.group
-        = render partial: "sidebar_groups", collection: @groups, as: "group"
+    = render partial: "sidebar_groups", collection: @groups, as: "group"
   %div.chat
     %div.header
       %div.left-header
         %div.left-header__title
-          sampleグループ
+          = @group.name
         %ul.left-header__members
           Member :
           %li.member
-            K
+            - @group.users.each do |member|
+              = member.name
       %div.right-header
-        %a.right-header__button
-          = link_to "Edit" , ""
+        %div.right-header__button
+          = link_to edit_group_path(@group) do
+            Edit
     %div.messages
       = render @messages
     %div.form
