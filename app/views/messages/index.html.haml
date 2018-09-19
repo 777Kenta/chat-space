@@ -2,7 +2,7 @@
   %div.side-bar
     %div.header
       %h3.header__name
-        = current_user.name
+        = @group.name
       %ul.header__lists
         %li.list
           = link_to edit_user_registration_path do
@@ -23,9 +23,8 @@
             - @group.users.each do |member|
               = member.name
       %div.right-header
-        %div.right-header__button
-          = link_to edit_group_path(@group) do
-            Edit
+        = link_to edit_group_path(@group),class: "right-header__button"  do
+          Edit
     %div.messages
       = render @messages
     %div.form
