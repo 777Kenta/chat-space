@@ -2,7 +2,7 @@
   %div.side-bar
     %div.header
       %h3.header__name
-        = @group.name
+        = current_user.name
       %ul.header__lists
         %li.list
           = link_to edit_user_registration_path do
