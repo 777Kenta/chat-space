@@ -1,6 +1,6 @@
 $(function(){
 
-  var search_list = $("#user-search-results");
+  var search_list = $("#user-search-result");
 
   function appendUser(user){
     var html = `<div class="chat-group-user clearfix">
@@ -14,18 +14,16 @@ $(function(){
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
-    
+
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: {
-        keyword: input
-      },
+      data: { keyword: input },
       dataType: 'json'
     })
 
     .done(function(users) {
-      $("#user-search-results").empty();
+      $("#user-search-result").empty();
       users.forEach(function(user){
         appendUser(user);
       });
@@ -46,7 +44,7 @@ $(function(){
     result_list.append(html);
   }
 
-  $("#user-search-results").on("click", ".chat-group-user__btn--add", function() {
+  $("#user-search-result").on("click", ".chat-group-user__btn--add", function() {
     var name = $(this).data("user-name")
     var id = $(this).data("user-id")
     addUser(name, id);
