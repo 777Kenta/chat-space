@@ -18,10 +18,6 @@ $(function(){
     return html;
   }
 
-  // $(function(){
-  //   setInterval(update, 5000);
-  // });
-
   function update(){
     var message_id = $(".message").last().data("message-id");
     $.ajax({
@@ -67,4 +63,9 @@ $(function(){
       alert('error');
     })
   });
+
+  $(function(){
+    setInterval(update, 5000);
+  });
+
 });
