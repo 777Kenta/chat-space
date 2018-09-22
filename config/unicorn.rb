@@ -7,7 +7,7 @@ stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
 
 worker_processes 1
-listen 3000
+
 timeout 60
 
 preload_app true
